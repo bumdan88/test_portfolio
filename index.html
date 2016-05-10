@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>india</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="src/jquery-1.11.3.min.js"></script>
+	<script src="src/swipe.js"></script>
+</head>
+<body>
+	<h1 class="logo"><img src="images/India.png" alt=""></h1>
+	<div class="ct clearfix">
+		<div class="india-wrap">
+			<div class="pagination clearfix">
+				<a href="#" class="on">Delhi</a>
+				<a href="#">Agra</a>
+				<a href="#">Varanasi</a>
+				<a href="#">Jodpur</a>
+				<a href="#">Manali</a>
+			</div>
+			<div id="india" class="swipe">
+				<ul class="swipe-wrap">
+					<li class="item"><img src="images/India_Gate.jpg" alt=""></li>
+					<li class="item"><img src="images/agra.jpg" alt=""></li>
+					<li class="item"><img src="images/varanasi-sunrise.jpg" alt=""></li>
+					<li class="item"><img src="images/bluecity.jpg" alt=""></li>
+					<li class="item"><img src="images/manali.jpg" alt=""></li>
+				</ul>
+			</div>
+			<div class="control">
+				<a href="#">이전</a>
+				<a href="#">다음</a>
+			</div>
+		</div>
+		<div class="fixedpic">
+			<h2>여행자들의 성지</h2>
+			<img src="images/india_fixed.png" alt="">
+		</div>
+	</div>
+	<script>
+//var elem=document.getElementById('india')
+//window.indiaSwipe = new Swipe(elem,{});	
+
+	$(function(){
+		$('.control a').eq(0).on('click',function(){
+			indiaSwipe.prev();
+		})
+		$('.control a').eq(1).on('click',function(){
+			indiaSwipe.next();
+		})
+	
+		window.indiaSwipe = $('#india').Swipe({
+			transitionEnd: function(index, element) {
+				$('.pagination a').eq(index).addClass('on').siblings().removeClass('on');
+			}
+		}).data('Swipe');
+	
+		$('.pagination a').on('click',function() {
+			idx=$('.pagination a').index($(this));
+			window.indiaSwipe.slide(idx,400);
+		});
+ 		
+	})
+
+	</script>
+</body>
+</html>
