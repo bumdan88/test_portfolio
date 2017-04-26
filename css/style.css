@@ -1,0 +1,5 @@
+body,div,ul,li,h1,h2,h3,h4{margin: 0;padding: 0;}
+.center-align{margin: 0 auto;width: 70%;}
+body{line-height: 2em;}
+section{margin: 0 auto;width: 70%;}
+footer{background-color: #ddd;color: #000;padding: ;}
